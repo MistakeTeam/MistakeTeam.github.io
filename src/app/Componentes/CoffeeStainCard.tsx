@@ -1,5 +1,4 @@
 import React, { Component, useEffect, useRef, useState } from "react";
-import useMousePosition from "../../hooks/useMousePosition";
 import { randomNum, scale } from "../../utility/math";
 
 interface CoffeeStainCardProps {
@@ -15,7 +14,6 @@ interface LightColorProps {
 
 export default function CoffeeStainCard({ Logo, url }: CoffeeStainCardProps) {
     const refRoot = useRef<HTMLAnchorElement>(null);
-    const { x, y } = useMousePosition();
     const [transform, setTransform] = useState<string>();
     const [opacity, setOpacity] = useState<string>();
     const [transition, setTransition] = useState<string>();
@@ -58,7 +56,10 @@ export default function CoffeeStainCard({ Logo, url }: CoffeeStainCardProps) {
         });
     }
 
-    function OnMouseMove() {
+    function OnMouseMove(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+        const x = e.clientX;
+        const y = e.clientY;
+
         let Xn = Math.floor(scale(x, dimensions.left, dimensions.right, -3, 3));
         let Yn = Math.floor(scale(y, dimensions.top, dimensions.bottom, -3, 3));
         let Xn_shadow = Math.floor(scale(x, dimensions.left, dimensions.right, -8, 8));
@@ -114,7 +115,7 @@ export default function CoffeeStainCard({ Logo, url }: CoffeeStainCardProps) {
                 boxShadow,
             }}
             ref={refRoot}
-            onMouseMove={OnMouseMove}
+            onMouseMove={(e) => OnMouseMove(e)}
             onMouseLeave={OnMouseLeave}
         >
             <div

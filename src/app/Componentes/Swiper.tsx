@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import useMousePosition from "../../hooks/useMousePosition";
 import { randomNum } from "../../utility/math";
 
 export default function Swiper() {
     const ref = useRef<HTMLAnchorElement>(null);
-    const { x, y } = useMousePosition();
     const [transform, setTransform] = useState<string>();
     const [ge, setGE] = useState({
         g2: 0,
@@ -26,7 +24,10 @@ export default function Swiper() {
         setTransform("perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)");
     }
 
-    function OnMouseMove() {
+    function OnMouseMove(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+        const x = e.clientX;
+        const y = e.clientY;
+
         let minXO = dimensions.left + dimensions.width / 2;
         let minYO = dimensions.top + dimensions.height / 2;
         let Xn = ((x - minXO) / (dimensions.right - minXO)) * (0 - 15) + 0;
@@ -73,7 +74,7 @@ export default function Swiper() {
             }}
             ref={ref}
             onMouseLeave={OnMouseLeave}
-            onMouseMove={OnMouseMove}
+            onMouseMove={(e) => OnMouseMove(e)}
         >
             <div className="card card-details flex-col justify-between flex relative">
                 <div className="titles text-white">
