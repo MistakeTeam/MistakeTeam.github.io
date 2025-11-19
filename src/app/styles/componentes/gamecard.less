@@ -1,0 +1,91 @@
+.games-archive {
+    margin-top: 0;
+
+    .parent {
+        transition: height .4s ease;
+    }
+
+    .parent {
+        display: grid;
+        gap: 2rem;
+        -moz-column-gap: 1.75rem;
+        column-gap: 1.75rem;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+
+        .game-card {
+            transition: opacity .35s ease, transform .35s ease;
+            will-change: opacity, transform;
+
+            .game-logo {
+                will-change: transform;
+            }
+
+            .game-card-image {
+                aspect-ratio: 16/9;
+            }
+
+            .game-card-image--foreground {
+                bottom: 0;
+                left: 0;
+                overflow: hidden;
+                position: absolute;
+                width: 100%;
+            }
+
+            .game-card-image--foreground {
+                aspect-ratio: 16/11;
+                z-index: 10;
+            }
+
+            .game-card-image--background {
+                aspect-ratio: 16/9;
+                border-radius: .375rem;
+                filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+                z-index: 0;
+            }
+
+            .game-card-image--background,
+            .game-card-image--foreground {
+                bottom: 0;
+                left: 0;
+                overflow: hidden;
+                position: absolute;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .games-archive .parent {
+        gap: 2.5rem;
+        grid-template-columns: repeat(12, 1fr);
+        margin-top: -4rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .games-archive .parent {
+        gap: 2.5rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (hover: hover) {
+    .game-card:hover .bg-image {
+        --tw-blur: blur(4px);
+        filter: var(--tw-blur);
+    }
+
+    .game-card:hover .bg-image,
+    .game-card:hover .fg-image {
+        --tw-scale-x: 1.05;
+        --tw-scale-y: 1.05;
+        transform: translate(0, 0) rotate(0) skew(0) skewY(0) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    }
+
+    .game-card:hover .title {
+        --tw-text-opacity: 1;
+        color: rgb(255, 252, 241, var(--tw-text-opacity, 1));
+    }
+}

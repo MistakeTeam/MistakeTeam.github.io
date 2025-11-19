@@ -1,0 +1,183 @@
+html {
+    font-size: 10px;
+    line-height: 1.5;
+    overflow-x: hidden;
+    -moz-user-select: none;
+    user-select: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: inherit;
+    line-height: inherit;
+    font-size: 62.5%;
+    background-color: #131928;
+    background-image: linear-gradient(152deg,
+            rgb(233, 29, 66) 0%,
+            #ffc32f 50%,
+            #5d0971 100%);
+    background-repeat: no-repeat;
+}
+
+.universe {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+}
+
+img {
+    pointer-events: none;
+}
+
+.animation {
+    transition: 0.4s cubic-bezier(0.49, 0.24, 0.49, 0.81);
+    -moz-transition: 0.4s cubic-bezier(0.49, 0.24, 0.49, 0.81);
+    -webkit-transition: 0.4s cubic-bezier(0.49, 0.24, 0.49, 0.81);
+}
+
+
+
+// NAV
+.nav-root {
+    box-sizing: border-box;
+    display: block;
+    max-width: 2600px;
+    margin: 0px auto;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 99;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: @nav-before-image-height;
+        background: url(https://menu-static.gog-statics.com/assets/img/footer-border.jpg) top center / 100% @nav-before-image-height no-repeat;
+    }
+
+    .nav-bar {
+        background: #282d43cc;
+        border-radius: 8px;
+        padding: 0 14px 0 35px;
+        margin: 0px auto;
+        height: 72px;
+        top: 16px;
+        left: 128px;
+        //right: 16px;
+        backdrop-filter: blur(20px);
+        align-content: center;
+        position: absolute;
+
+        &.nav-remy {
+            background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.26) 0%, #0000 30%);
+        }
+
+        .nav-logo {
+            display: flex;
+            padding: 0 12px 0 0;
+            align-content: center;
+        }
+
+        #nav-logo {
+            width: 165px;
+            position: absolute;
+            left: -112px;
+
+            svg {
+                position: absolute;
+                top: -19px;
+                width: 165px;
+                height: auto;
+                cursor: pointer;
+            }
+        }
+
+        >div {
+            align-items: center;
+            display: flex;
+            flex: 0 1 auto;
+            height: 4.7rem;
+
+            li {
+                list-style: none;
+            }
+        }
+    }
+}
+
+//////////////////////////////////////////////
+
+button {
+    display: flex;
+    background: 0px 0px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 16px;
+    border: medium;
+    border-radius: 8px;
+    letter-spacing: inherit;
+    min-height: 48px;
+    //width: 100%;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.116);
+    }
+
+    >span {
+        align-content: center;
+    }
+}
+
+// SECTION
+
+.mist-page-store {
+    >section {
+        margin-bottom: 4rem;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    >:last-child {
+        margin-bottom: 0;
+        padding-bottom: 4rem;
+    }
+}
+
+section {
+    position: relative;
+    padding: 1.5rem 15rem;
+    width: -moz-available;
+    width: -webkit-fill-available;
+
+    &.cabeçalho-destaques {
+        padding: 0;
+    }
+}
+
+//////////////////
+
+// FOOTER
+
+footer {
+    //background-color: rgba(0, 0, 0, 0.486);
+    padding: 20px 0;
+    position: relative;
+
+    section {
+        display: flex;
+    }
+}
+
+////////////////////////

@@ -1,0 +1,87 @@
+@carrossel-content-hover-width: 15rem;
+
+section.carrossel-destaques {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 600px;
+
+    &.carrossel-box {
+        padding: 0;
+        margin: 0 15rem 4rem;
+        box-shadow: 0px 0px 10px black, inset 0px 0px 30px black;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    &.carrossel-destaques-wide {
+        box-shadow: inset 0px 0px 70px black;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        padding: 0;
+    }
+
+    .carrossel-hover {
+        .is-absolute();
+
+        >div {
+            width: @carrossel-content-hover-width;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.425);
+            }
+        }
+
+        .carrossel-hover-esquerda {
+            left: 0;
+
+            &:hover {
+                mask-image: radial-gradient(ellipse at 0% 50%, black 0%, transparent 70%);
+            }
+        }
+
+        .carrossel-hover-direita {
+            right: 0;
+
+            &:hover {
+                mask-image: radial-gradient(ellipse at 100% 50%, black 0%, transparent 70%);
+            }
+        }
+    }
+
+    .carrossel-container {
+        .is-absolute();
+
+        .carrossel-item {
+            display: none;
+            justify-content: center;
+            height: 100%;
+
+            &.carrossel-item-visible {
+                display: flex;
+            }
+
+            .carrossel-background {
+                display: flex;
+                overflow: hidden;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                z-index: -1;
+
+                img {
+                    flex-grow: 1;
+                }
+            }
+
+            .carrossel-content {
+                .width-fill-available();
+                height: 100%;
+                position: absolute;
+                padding: 0 @carrossel-content-hover-width;
+            }
+        }
+    }
+}

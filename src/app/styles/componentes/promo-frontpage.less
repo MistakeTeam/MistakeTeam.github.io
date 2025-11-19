@@ -1,0 +1,31 @@
+.mist-page-store>.section:first-child {
+    .promo-content {
+        padding-top: 5.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+.promo-container {
+    display: flex;
+    justify-content: center;
+
+    .promo-item {
+        display: flex;
+        max-height: 900px;
+
+        .promo-background {
+            mask-image: radial-gradient(90rem at 25% 25%, black 25%, transparent 70%),
+                radial-gradient(90rem at 70% 0%, black 40%, transparent 90%),
+                radial-gradient(90rem at 50% 30%, black 30%, transparent 65%);
+
+            img {
+                height: 900px;
+            }
+        }
+
+        .promo-content {
+            padding: 0 10rem;
+            .is-absolute();
+        }
+    }
+}

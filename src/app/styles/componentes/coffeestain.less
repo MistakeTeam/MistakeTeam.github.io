@@ -1,0 +1,112 @@
+.studios {
+    perspective: 1200px;
+    perspective-origin: 50%;
+}
+
+.section-bg {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+
+    .background-main {
+        flex: 1 1 0%;
+        height: 100%;
+        margin-top: -0.5rem;
+        position: relative;
+    }
+}
+
+.coffee-stain-studios {
+    .studios {
+        .studio-card {
+            align-items: center;
+            aspect-ratio: 1/1;
+            border-radius: .375rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: .25rem;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            --tw-bg-opacity: 1;
+            background-color: #b3b1ad;
+            --tw-text-opacity: 1;
+            color: #575555;
+            transition-duration: .2s;
+            will-change: transform;
+
+            .light {
+                height: 220%;
+                left: 50%;
+                opacity: 0;
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 220%;
+                z-index: 999;
+            }
+
+            .studio-logo {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 1.875rem;
+                z-index: 1000;
+            }
+        }
+    }
+
+
+
+    .title {
+        display: block;
+        margin-top: -0.5rem;
+        position: relative;
+
+        >* {
+            font-family: "Orgon-Black";
+            font-size: 3rem;
+            line-height: 1;
+            text-transform: uppercase;
+            --tw-text-opacity: 1;
+            color: #161616;
+        }
+
+        >* br {
+            display: block;
+        }
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .coffee-stain-studios:not(:last-child) .container {
+        padding-bottom: 20rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .coffee-stain-studios .title>* {
+        font-size: 6.5rem;
+        line-height: .9;
+    }
+}
+
+@media (min-width: 1440px) {
+    .coffee-stain-studios .title>* {
+        font-size: 9.6rem;
+        line-height: .85;
+    }
+}

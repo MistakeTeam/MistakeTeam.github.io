@@ -1,0 +1,115 @@
+.mosaico-container {
+    margin: 0 0 2rem;
+    position: relative;
+    .width-fill-available();
+
+    .mosaico__row {
+        display: grid;
+        grid-template-columns: repeat(6, 252.167px);
+        grid-template-rows: repeat(2, 142.967px);
+        gap: 15px;
+        grid-auto-flow: column;
+        margin: 15px auto;
+        width: fit-content;
+
+        .mosaico__produto {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            box-shadow: 0px 0px 10px black;
+            .box-sizing();
+
+            &.mosaico__produto--prioridade-bloco-grande {
+                grid-row: span 2;
+                grid-column: span 2;
+
+                .produto__sistema-suportado {
+                    margin-bottom: 12px;
+                }
+            }
+
+            &.mosaico__produto--prioridade-coluna-vertical {
+                grid-row: span 2;
+            }
+
+            &.mosaico__produto--prioridade-coluna-horizontal {
+                grid-column: span 2;
+            }
+
+            .produto__img {
+                display: block;
+                overflow: hidden;
+                background-color: #353535;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, .35);
+                .is-absolute();
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            .produto__titulo {
+                position: absolute;
+                top: 40%;
+                left: 0;
+                right: 0;
+                padding: 0 10px;
+                line-height: 1.2;
+                text-align: center;
+                color: #4c4c4c;
+                z-index: -1;
+            }
+
+            .produto__sistema-suportado {
+                margin-bottom: 7px;
+                position: absolute;
+                left: 8px;
+                bottom: 8px;
+
+                &::after,
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    top: 1px;
+                    background-repeat: no-repeat;
+                }
+
+                &.suporte-mac,
+                &::after,
+                &::before {
+                    width: 11px;
+                    height: 11px;
+                    background-image: url(https://web.archive.org/web/20171101205723im_/https://www4-static2.gog.com/bundles/gogwebsitecommon/img/dist/sprites/global/light/1x.9bb0ca8d.png);
+                }
+
+                &.suporte-mac {
+                    background-position: -48px -84px;
+                }
+
+                &.suporte-win {
+                    margin-left: 13px;
+
+                    &::before {
+                        background-position: -59px -84px;
+                        right: 100%;
+                    }
+                }
+
+                &.suporte-linux::after {
+                    background-position: -70px -84px;
+                    left: 100%;
+                }
+            }
+
+            .produto_info {
+                .is-absolute();
+                padding-right: 8px;
+            }
+        }
+    }
+}
